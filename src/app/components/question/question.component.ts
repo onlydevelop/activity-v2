@@ -25,7 +25,7 @@ interface Question {
   styleUrls: ['./question.component.css'],
 })
 export class QuestionComponent implements OnInit {
-  private _jsonURL = 'assets/questions.json';
+  private _jsonURL = 'assets/';
   private questions: Question[] = [];
 
   @Input() subjectTitle: string = '';
@@ -45,7 +45,7 @@ export class QuestionComponent implements OnInit {
   }
 
   getJSON(): Observable<any> {
-    return this.http.get(this._jsonURL);
+    return this.http.get(`${this._jsonURL}/${this.subject}.json`);
   }
 
   renderQuestion(): void {
