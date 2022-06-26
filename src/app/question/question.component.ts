@@ -39,7 +39,6 @@ export class QuestionComponent implements OnInit {
   ngOnInit(): void {
     this.getJSON().subscribe((data) => {
       this.questions = data;
-      console.log(data);
       this.renderQuestion();
     });
   }
@@ -69,7 +68,8 @@ export class QuestionComponent implements OnInit {
   }
 
   onNextClick(): void {
-    this.questionId = this.questionId === 0 ? 1 : 0;
+    this.questionId =
+      this.questionId === this.questions.length - 1 ? 0 : this.questionId + 1;
     this.renderQuestion();
   }
 }
