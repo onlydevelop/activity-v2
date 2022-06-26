@@ -6,24 +6,41 @@
         class="form-control"
         rows="5"
         id="question"
-        name="text"
+        name="question"
         disabled
-      ></textarea>
+        >{{ questionText }}</textarea
+      >
+    </div>
+    <div class="mb-3 mt-3">
+      <ul>
+        <li *ngFor="let choice of choices">
+          {{ choice.text }}
+        </li>
+      </ul>
     </div>
     <div class="mb-3">
       <label for="pwd" class="form-label">Answer:</label>
       <input
-        type="answer"
+        type="text"
         class="form-control"
-        id="pwd"
+        id="answer"
         placeholder="Give your answer here"
-        name="pswd"
+        name="answer"
+        #answer
       />
     </div>
     <div class="mb-3 mt-3">
-      <label for="comment">Your answer is Correct!</label>
+      <label id="response">{{ response }}</label>
     </div>
-    <button type="submit" class="btn btn-primary">Check</button>
-    <button type="submit" class="btn btn-primary">Next ></button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="onCheckClick(answer.value)"
+    >
+      Check
+    </button>
+    <button type="button" class="btn btn-primary" (click)="onNextClick()">
+      Next >
+    </button>
   </form>
 </div>
