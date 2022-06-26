@@ -25,7 +25,8 @@ interface Question {
   styleUrls: ['./question.component.css'],
 })
 export class QuestionComponent implements OnInit {
-  private _jsonURL = 'assets/';
+  private _jsonURL =
+    'https://raw.githubusercontent.com/onlydevelop/activity-questions/master';
   private questions: Question[] = [];
 
   @Input() subjectTitle: string = '';
