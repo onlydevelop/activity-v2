@@ -69,7 +69,10 @@ export class QuestionComponent implements OnInit {
     }
   }
 
-  onNextClick(): void {
+  onNextClick(answer: any): void {
+    answer.value = '';
+    this.response = '';
+
     this.questionId =
       this.questionId === this.questions.length - 1 ? 0 : this.questionId + 1;
     this.renderQuestion();
