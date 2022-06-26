@@ -28,7 +28,7 @@ export class QuestionComponent implements OnInit {
   private _jsonURL = 'assets/questions.json';
   private questions: Question[] = [];
 
-  @Input() subject: string = 'General';
+  @Input() subject: string = '';
   questionText: string = '';
   choices: QuestionChoice[] = [];
   response: string = '';

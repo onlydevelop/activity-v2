@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { QuestionComponent } from './question/question.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { QuestionComponent } from './components/question/question.component';
 import { EnglishComponent } from './pages/english/english.component';
 import { MathsComponent } from './pages/maths/maths.component';
 import { ScienceComponent } from './pages/science/science.component';
