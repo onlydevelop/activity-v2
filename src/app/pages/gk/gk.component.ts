@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GkComponent implements OnInit {
   subjectTitle: string = 'General Knowledge';
+  subject: string = 'gk';
 
   constructor() {}
 

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnglishComponent implements OnInit {
   subjectTitle: string = 'English';
+  subject: string = 'english';
 
   constructor() {}
 

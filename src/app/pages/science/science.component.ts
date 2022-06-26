@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScienceComponent implements OnInit {
   subjectTitle: string = 'Science';
+  subject: string = 'science';
 
   constructor() {}
 

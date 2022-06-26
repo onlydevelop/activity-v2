@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrammarComponent implements OnInit {
   subjectTitle: string = 'Grammar';
+  subject: string = 'grammer';
 
   constructor() {}
 
