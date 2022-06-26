@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 interface CorrectChoice {
   id: number;
@@ -23,70 +25,27 @@ interface Question {
   styleUrls: ['./question.component.css'],
 })
 export class QuestionComponent implements OnInit {
-  constructor() {}
+  private _jsonURL = 'assets/questions.json';
+  private questions: Question[] = [];
 
+  subject: string = 'General';
   questionText: string = '';
   choices: QuestionChoice[] = [];
   response: string = '';
   questionId: number = 0;
 
-  private questions: Question[] = [
-    {
-      id: 0,
-      text: 'How many days are there in a week?',
-      choices: [
-        {
-          id: 0,
-          text: '5 days',
-        },
-        {
-          id: 1,
-          text: '6 days',
-        },
-        {
-          id: 2,
-          text: '7 days',
-        },
-        {
-          id: 3,
-          text: '8 days',
-        },
-      ],
-      correct: {
-        id: 2,
-        text: '7 days',
-      },
-    },
-    {
-      id: 1,
-      text: 'How many months are in a year?',
-      choices: [
-        {
-          id: 0,
-          text: '10 months',
-        },
-        {
-          id: 1,
-          text: '11 months',
-        },
-        {
-          id: 2,
-          text: '12 months',
-        },
-        {
-          id: 3,
-          text: '13 months',
-        },
-      ],
-      correct: {
-        id: 2,
-        text: '12 months',
-      },
-    },
-  ];
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.renderQuestion();
+    this.getJSON().subscribe((data) => {
+      this.questions = data;
+      console.log(data);
+      this.renderQuestion();
+    });
+  }
+
+  getJSON(): Observable<any> {
+    return this.http.get(this._jsonURL);
   }
 
   renderQuestion(): void {
@@ -95,6 +54,11 @@ export class QuestionComponent implements OnInit {
   }
 
   onCheckClick(answer: string): void {
+    if (answer.trim() === '') {
+      this.response = 'Please write any of the above answer.';
+      return;
+    }
+
     if (this.questions[this.questionId].correct.text.includes(answer)) {
       this.response =
         'Correct. Answer is: ' + this.questions[this.questionId].correct.text;
