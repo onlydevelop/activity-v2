@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -28,7 +28,7 @@ export class QuestionComponent implements OnInit {
   private _jsonURL = 'assets/questions.json';
   private questions: Question[] = [];
 
-  subject: string = 'General';
+  @Input() subject: string = 'General';
   questionText: string = '';
   choices: QuestionChoice[] = [];
   response: string = '';
