@@ -59,13 +59,13 @@ export class QuestionComponent implements OnInit {
       this.response = 'Please write any of the above answer.';
       return;
     }
-
     if (this.questions[this.questionId].correct.id === undefined) {
       this.response =
-          'Sample Answer is: ' + this.questions[this.questionId].correct.text;
+      'Sample Answer is: ' + this.questions[this.questionId].correct.text;
     }
-    else{
-      if (this.questions[this.questionId].correct.text.includes(answer)) {
+    else{ 
+      let trimmedLowercaseAnswer = answer.trim().toLowerCase();
+      if (this.questions[this.questionId].correct.text.toLocaleLowerCase().includes(trimmedLowercaseAnswer)) {
         this.response =
           'Correct. Answer is: ' + this.questions[this.questionId].correct.text;
       } else {
