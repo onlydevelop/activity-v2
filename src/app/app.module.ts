@@ -12,6 +12,7 @@ import { ScienceComponent } from './pages/science/science.component';
 import { SstComponent } from './pages/sst/sst.component';
 import { GrammarComponent } from './pages/grammar/grammar.component';
 import { GkComponent } from './pages/gk/gk.component';
+import { ComputerComponent } from './pages/computer/computer.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { GkComponent } from './pages/gk/gk.component';
     SstComponent,
     GrammarComponent,
     GkComponent,
+    ComputerComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],

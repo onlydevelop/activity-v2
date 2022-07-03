@@ -7,6 +7,7 @@ import { ScienceComponent } from './pages/science/science.component';
 import { SstComponent } from './pages/sst/sst.component';
 import { MathsComponent } from './pages/maths/maths.component';
 import { GkComponent } from './pages/gk/gk.component';
+import { ComputerComponent } from './pages/computer/computer.component';
 
 const routes: Routes = [
   { path: 'english', component: EnglishComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'sst', component: SstComponent },
   { path: 'maths', component: MathsComponent },
   { path: 'gk', component: GkComponent },
+  { path: 'computer', component: ComputerComponent }
 ];
 
 @NgModule({
