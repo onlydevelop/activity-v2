@@ -60,12 +60,18 @@ export class QuestionComponent implements OnInit {
       return;
     }
 
-    if (this.questions[this.questionId].correct.text.includes(answer)) {
+    if (this.questions[this.questionId].correct.id === undefined) {
       this.response =
-        'Correct. Answer is: ' + this.questions[this.questionId].correct.text;
-    } else {
-      this.response =
-        'Wrong! Answer is: ' + this.questions[this.questionId].correct.text;
+          'Sample Answer is: ' + this.questions[this.questionId].correct.text;
+    }
+    else{
+      if (this.questions[this.questionId].correct.text.includes(answer)) {
+        this.response =
+          'Correct. Answer is: ' + this.questions[this.questionId].correct.text;
+      } else {
+        this.response =
+          'Wrong! Answer is: ' + this.questions[this.questionId].correct.text;
+      }
     }
   }
 
