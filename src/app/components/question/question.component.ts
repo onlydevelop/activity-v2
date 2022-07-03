@@ -35,12 +35,15 @@ export class QuestionComponent implements OnInit {
   choices: QuestionChoice[] = [];
   response: string = '';
   questionId: number = 0;
+  currentCount: number = 0;
+  totalCount: number = 0;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.getJSON().subscribe((data) => {
       this.questions = data;
+      this.totalCount = this.questions.length;
       this.renderQuestion();
     });
   }
@@ -50,6 +53,7 @@ export class QuestionComponent implements OnInit {
   }
 
   renderQuestion(): void {
+    this.currentCount = this.questionId + 1;
     this.questionText = this.questions[this.questionId].text;
     this.choices = this.questions[this.questionId].choices;
   }
