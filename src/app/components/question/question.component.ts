@@ -56,21 +56,19 @@ export class QuestionComponent implements OnInit {
 
   onCheckClick(answer: string): void {
     if (answer.trim() === '') {
-      this.response = 'Please write any of the above answer.';
+      this.response = 'Please give an answer.';
       return;
     }
 
+    let correctAnswer: string = this.questions[this.questionId].correct.text;
     if (this.questions[this.questionId].correct.id === undefined) {
-      this.response =
-          'Sample Answer is: ' + this.questions[this.questionId].correct.text;
-    }
-    else{
-      if (this.questions[this.questionId].correct.text.includes(answer)) {
-        this.response =
-          'Correct. Answer is: ' + this.questions[this.questionId].correct.text;
+      this.response = `Sample Answer is: ${correctAnswer}`;
+    } else {
+      let trimmedLowercaseAnswer = answer.trim().toLowerCase();
+      if (correctAnswer.toLocaleLowerCase().includes(trimmedLowercaseAnswer)) {
+        this.response = `Correct. Answer is: ${correctAnswer}`;
       } else {
-        this.response =
-          'Wrong! Answer is: ' + this.questions[this.questionId].correct.text;
+        this.response = `Wrong! Answer is: ${correctAnswer}`;
       }
     }
   }
