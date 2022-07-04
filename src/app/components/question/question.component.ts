@@ -55,7 +55,7 @@ export class QuestionComponent implements OnInit {
   renderQuestion(): void {
     this.currentCount = this.questionId + 1;
     this.questionText = this.questions[this.questionId].text;
-    this.choices = this.questions[this.questionId].choices;
+    this.choices = this.shuffle(this.questions[this.questionId].choices);
   }
 
   onCheckClick(answer: string): void {
@@ -86,7 +86,7 @@ export class QuestionComponent implements OnInit {
     this.renderQuestion();
   }
 
-  shuffle(array:Question[]) {
+  shuffle(array:any[]) {
     let currentIndex = array.length,  randomIndex;
   
     // While there remain elements to shuffle.
